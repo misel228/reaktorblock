@@ -1,0 +1,19 @@
+{
+  "name": "reaktorblock",
+  "version": "0.1.0",
+  "description": "Misel testet ReactJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misel228/reaktorblock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misel228/reaktorblock/issues"
+  },
+  "homepage": "https://github.com/misel228/reaktorblock#readme"
+}
