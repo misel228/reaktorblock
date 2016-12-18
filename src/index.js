@@ -3,7 +3,9 @@
 var config = require('config');
 var blogsource = config.get('blogsource');
 
-console.log('#####################################################################################################');
+console.log('###### REAKTORBLOCK #################################################################################');
+
+
 console.log(blogsource);
 
 var http   = require('http');
@@ -18,14 +20,12 @@ var request = http.get(blogsource, function(result){
     });
 
     result.on('end', function(){
-        console.log(xml);
-        var json = parser.parseString(xml);
-        //console.log(json);
+        parser.parseString(xml, function(error, result){
+            console.log(JSON.stringify(result));
+        });
     });
-
-
 });
 
 request.on('error', function(e){
-    console.log('Error: ' + e.message);
+    console.error(e.message);
 });
