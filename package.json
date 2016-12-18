@@ -21,5 +21,9 @@
     "babel-loader": "^6.2.10",
     "jest": "^18.0.0",
     "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "config": "^1.24.0",
+    "xml2js": "^0.4.17"
   }
 }
