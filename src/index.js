@@ -1,31 +1,37 @@
 'use strict';
 
-var config = require('config');
-var blogsource = config.get('blogsource');
-
 console.log('###### REAKTORBLOCK #################################################################################');
 
-
-console.log(blogsource);
+var config = require('config');
+var blogsource = config.get('blogsource');
 
 var http   = require('http');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 
+var express = require('express');
+var app = express();
 
-var request = http.get(blogsource, function(result){
-    var xml = '';
-    result.on('data', function(chunk){
-        xml += chunk;
+app.get('/', function(request, response){
+    var request = http.get(blogsource, function(result){
+        var xml = '';
+        result.on('data', function(chunk){
+            xml += chunk;
+        });
+
+        result.on('end', function(){
+            parser.parseString(xml, function(error, result){
+                response.end(JSON.stringify(result));
+            });
+        });
     });
 
-    result.on('end', function(){
-        parser.parseString(xml, function(error, result){
-            console.log(JSON.stringify(result));
-        });
+    request.on('error', function(e){
+        console.error(e.message);
     });
 });
 
-request.on('error', function(e){
-    console.error(e.message);
+
+app.listen(config.get('port'), function(){
+    console.log("listening on port: " + config.get('port'));
 });

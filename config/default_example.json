@@ -1,3 +1,4 @@
 {
-    "blogsource" : "http://example.com/feeds/rss2.xml"
+    "blogsource" : "http://example.com/feeds/rss2.xml",
+    "port"       : 3000
 }
