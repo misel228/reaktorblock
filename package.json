@@ -19,6 +19,9 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-loader": "^6.2.10",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.0.0",
     "jest": "^18.0.0",
     "webpack": "^1.14.0"
   },

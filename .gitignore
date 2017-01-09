@@ -39,3 +39,6 @@ jspm_packages
 #configs
 config/default.json
 config/production.json
+
+#build
+build/
