@@ -23,15 +23,23 @@ module.exports = function(grunt) {
                     module: true
                 }
             }
-        }
+        },
+        watch: {
+            scripts: {
+                files: ['src/**/*.js'],
+                tasks: ['jshint'],
+                options: {
+                    spawn: false,
+                },
+            },
+        },
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-
-    // Default task(s).
-    grunt.registerTask('build-release', ['uglify']);
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('build-release', ['uglify']);
 };
