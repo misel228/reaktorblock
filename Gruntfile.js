@@ -33,13 +33,24 @@ module.exports = function(grunt) {
                 },
             },
         },
+        jsbeautifier : {
+            src : ['src/**/*.js'],
+            options:{
+                js: {
+                    indentSize: 2,
+                    eol: "\\n"
+                }
+            }
+        }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
 
     grunt.registerTask('default', ['jshint']);
     grunt.registerTask('build-release', ['uglify']);
+    grunt.registerTask('beautify', ['jsbeautifier']);
 };
